@@ -1,0 +1,29 @@
+{
+  "name": "m133-todo-app",
+  "version": "1.0.0",
+  "description": "M133 todo app",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noahhorlacher/M133-todo-app.git"
+  },
+  "author": "Noah Horlacher, Matteo Tschopp, Robert Fodor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noahhorlacher/M133-todo-app/issues"
+  },
+  "homepage": "https://github.com/noahhorlacher/M133-todo-app#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
