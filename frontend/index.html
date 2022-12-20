@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>taskgarden</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/index.js" type="module" defer></script>
+</head>
+
+<body>
+    <h1>taskgarden</h1>
+    <main>
+        <label>Neuer Task</label>
+        <div id="container_create">
+            <input type="text" id="input_element" minlength="1" maxlength="255" placeholder="Hund waschen">
+            <button id="button_add" title="Task erstellen"></button>
+        </div>
+        <p id="label_input_error"></p>
+        <hr>
+        <ul id="tasks" class="hidden"></ul>
+        <p id="label_no_tasks">Sie haben keine Tasks.</p>
+        <hr>
+        <footer id="tasks_footer">
+            <p id="label_open_tasks">Keine offenen Tasks</p>
+            <button id="btn_delete_completed" title="Alle abgeschlossenen Tasks entfernen" disabled="true">Erledigte
+                löschen</button>
+        </footer>
+    </main>
+    <div id="container_snackbar"></div>
+
+    <div class="modal hidden" id="modal_delete_one">
+        <div class="modal_background"></div>
+        <div class="content">
+            <button class="icon close"></button>
+            <h2 class="modal_header">Task wirklich löschen?</h2>
+            <p>Diese Aktion kann nicht rückgängig gemacht werden.</p>
+            <div class="buttons">
+                <button class="cancel">Abbrechen</button>
+                <button class="confirm">Löschen</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal hidden" id="modal_delete_done">
+        <div class="modal_background"></div>
+        <div class="content">
+            <button class="icon close button_close"></button>
+            <h2 class="modal_header">Alle abgeschlossenen Tasks löschen?</h2>
+            <p id="amount_tasks_for_deletion"></p>
+            <div class="buttons">
+                <button class="cancel">Abbrechen</button>
+                <button class="confirm">Löschen</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

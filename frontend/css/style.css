@@ -1,0 +1,396 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+
+:root {
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    --primary: #e9e9e9;
+    --primary-dark: #d9d9d9;
+    --round: 0px;
+    --error: #e25555;
+    --error-dark: #bb3e3e;
+}
+
+* {
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: .05rem;
+    outline: 2px solid transparent;
+}
+
+*:focus {
+    outline: 2px solid rgba(129, 129, 129, 0.8)
+}
+
+body {
+    text-align: center;
+    padding: 2rem;
+}
+
+button {
+    background: transparent;
+    border: 1px solid var(--primary);
+    border-radius: var(--round);
+    cursor: pointer;
+    padding: .3rem .7rem;
+    user-select: none;
+
+    transition: border-color .3s, background-color .3s;
+}
+
+button:hover {
+    background-color: var(--primary);
+}
+
+button:active {
+    background-color: var(--primary-dark);
+}
+
+button:disabled:hover {
+    background-color: transparent;
+    cursor: default;
+}
+
+h1 {
+    margin-bottom: 2rem;
+}
+
+main {
+    max-width: 400px;
+    margin: auto;
+}
+
+input[type="checkbox"] {
+    margin: 0;
+    cursor: pointer;
+}
+
+input::placeholder {
+    user-select: none;
+}
+
+#container_create {
+    display: flex;
+    width: 100%;
+
+    box-shadow: var(--shadow);
+}
+
+#button_add {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    width: 4rem;
+
+    border: none;
+
+    background-image: url('../icons/add.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+
+    background-color: hsl(264, 100%, 55%);
+    color: white;
+}
+
+#button_add:hover {
+    background-color: hsl(264, 100%, 45%);
+}
+
+#button_add:active {
+    background-color: hsl(264, 100%, 38%);
+}
+
+#input_element {
+    box-sizing: border-box;
+    margin: 0;
+    font-size: 1rem;
+    padding: .6em .8em;
+    border-radius: var(--round);
+    border: 0;
+    flex-basis: 100%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#tasks {
+    max-height: 400px;
+    overflow-y: scroll;
+    overflow-x: visible;
+    padding: 1rem;
+    width: calc(100% + 1rem);
+    margin-left: -1rem;
+}
+
+#tasks::-webkit-scrollbar {
+    width: 10px;
+}
+
+#tasks::-webkit-scrollbar-track {
+    background: #e2e2e2;
+    border-radius: 5px;
+}
+
+#tasks::-webkit-scrollbar-thumb {
+    background: rgb(198, 198, 198);
+    border-radius: 5px;
+    height: 12px;
+}
+
+#tasks::-webkit-scrollbar-thumb:hover {
+    background: rgb(156, 156, 156);
+}
+
+#tasks .task:first-of-type {
+    margin-top: 0;
+}
+
+#tasks .task:last-of-type {
+    margin-bottom: 0;
+}
+
+#tasks.hidden {
+    display: none;
+}
+
+.task {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .6rem .8rem;
+    margin: .5em 0;
+    background-color: white;
+    border-radius: var(--round);
+    box-shadow: var(--shadow);
+
+    opacity: .8;
+
+    transition: opacity .3s;
+}
+
+.task:hover {
+    opacity: 1;
+}
+
+.task[data-done='true'] {
+    opacity: .5;
+}
+
+.task[data-done='true'] p {
+    text-decoration: line-through;
+}
+
+.task p {
+    flex-grow: 1;
+    margin: 0 2rem;
+    text-align: left;
+    word-break: break-word;
+}
+
+.task button {
+    background-image: url('../icons/delete.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+
+    background-color: transparent;
+
+    opacity: .6;
+
+    box-shadow: none;
+
+    width: 2rem;
+    height: 2rem;
+
+    border: 0;
+
+    padding: .5rem;
+
+    flex-shrink: 0;
+
+    transition: opacity .3s, border-color .3s, background-color .3s;
+}
+
+.task button:hover {
+    opacity: 1;
+    border-color: #e25555;
+    background-color: var(--primary);
+}
+
+.task button:active {
+    background-color: var(--primary-dark);
+}
+
+#tasks_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-style: italic;
+}
+
+#tasks_footer p {
+    margin: 0 1em 0 0;
+}
+
+hr {
+    opacity: .5;
+    margin: 2rem 0;
+}
+
+label {
+    display: block;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: .8rem;
+
+    opacity: .8;
+    margin-bottom: .5rem;
+}
+
+#label_input_error {
+    color: #e25555;
+    font-weight: 900;
+    display: block;
+    text-align: left;
+    font-size: .9rem;
+    font-style: italic;
+}
+
+#container_snackbar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+
+    translate: -50% 0;
+
+    max-width: 500px;
+}
+
+.snackbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: white;
+    box-shadow: var(--shadow);
+
+    margin: 1rem auto;
+    opacity: 1;
+
+    padding: .5rem 2rem;
+
+    transition: opacity .5s;
+}
+
+.snackbar .icon {
+    width: 2rem;
+    height: 2rem;
+    flex-shrink: 0;
+
+    margin-right: 1rem;
+}
+
+.icon {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+}
+
+.icon.error {
+    background-image: url('../icons/error.svg');
+}
+
+.icon.close {
+    background-image: url('../icons/close.svg');
+
+    cursor: pointer;
+
+    margin-left: 1rem;
+    margin-right: 0;
+}
+
+.icon.close:hover {
+    background-color: var(--primary);
+}
+
+.icon.close:active {
+    background-color: var(--primary-dark);
+}
+
+.snackbar.closing {
+    opacity: 0;
+}
+
+#label_no_tasks.hidden {
+    display: none;
+}
+
+.modal {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal .modal_background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: #00000088;
+}
+
+.modal .content {
+    text-align: left;
+
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    translate: -50%;
+
+    padding: 4rem 4rem 2rem 4rem;
+
+    background-color: white;
+
+    display: block;
+    z-index: 1;
+}
+
+.modal .content button.close {
+    width: 2rem;
+    height: 2rem;
+
+    margin: 0;
+
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.modal h2 {
+    margin-top: 0;
+}
+
+.modal .buttons {
+    display: flex;
+    justify-content: end;
+    margin-top: 4rem
+}
+
+.modal .buttons button.cancel {
+    margin-right: 1rem;
+}
+
+.modal .buttons button.confirm {
+    border-color: var(--error);
+    color: var(--error);
+    font-weight: 600;
+}
+
+#btn_delete_completed {
+    transition: color .3s, border-color .3s, background-color .3s;
+}
