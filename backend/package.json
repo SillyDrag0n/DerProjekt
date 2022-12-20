@@ -1,29 +1,22 @@
 {
-  "name": "m133-todo-app",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "name": "ctrlc-ctrlv",
+  "description": "Vorstellungsletter",
   "version": "1.0.0",
-  "description": "M133 todo app",
-  "main": "index.js",
-  "type": "module",
+  "main": "main.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/noahhorlacher/M133-todo-app.git"
+    "url": "git+https://github.com/SillyDrag0n/DerProjekt.git"
   },
-  "author": "Noah Horlacher, Matteo Tschopp, Robert Fodor",
+  "author": "My ass",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/noahhorlacher/M133-todo-app/issues"
+    "url": "https://github.com/SillyDrag0n/DerProjekt/issues"
   },
-  "homepage": "https://github.com/noahhorlacher/M133-todo-app#readme",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.2"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.20"
-  }
+  "homepage": "https://github.com/SillyDrag0n/DerProjekt#readme"
 }
