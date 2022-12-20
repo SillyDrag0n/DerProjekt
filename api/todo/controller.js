@@ -1,5 +1,25 @@
 import model from './model.js'
 
+function removeToDo(req, res) {
+    try {
+        model.removeToDo(req.params.id)
+        res.sendStatus(200)
+    } catch (error) {
+        res.sendStatus(500)
+        console.error(error)
+    }
+}
+
+function updateToDoState(req, res) {
+    try {
+        model.updateToDoState(req.params.id, req.body.done)
+        res.sendStatus(200)
+    } catch (error) {
+        res.sendStatus(500)
+        console.error(error)
+    }
+}
+
 function getAllTodos(req, res) {
     try {
         const data = model.getAllTodos()
@@ -10,9 +30,9 @@ function getAllTodos(req, res) {
     }
 }
 
-function createTodo(req, res) {
+function createNewToDo(req, res) {
     try {
-        const data = model.createTodo(req.body.title, req.body.done)
+        const data = model.createNewToDo(req.body.title, req.body.done)
         res.status(200).json(data)
     } catch (error) {
         res.sendStatus(500)
@@ -20,29 +40,9 @@ function createTodo(req, res) {
     }
 }
 
-function updateDoneState(req, res) {
-    try {
-        model.updateDoneState(req.params.id, req.body.done)
-        res.sendStatus(200)
-    } catch (error) {
-        res.sendStatus(500)
-        console.error(error)
-    }
-}
-
-function deleteTodo(req, res) {
-    try {
-        model.deleteTodo(req.params.id)
-        res.sendStatus(200)
-    } catch (error) {
-        res.sendStatus(500)
-        console.error(error)
-    }
-}
-
 export default {
+    removeToDo,
+    updateToDoState,
     getAllTodos,
-    createTodo,
-    updateDoneState,
-    deleteTodo
+    createNewToDo,
 }

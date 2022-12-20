@@ -1,21 +1,15 @@
 import cors from 'cors'
 import Express from "express"
+import routerToDo from './todo/router.js'
 
-// import routers
-import todoRouter from './todo/router.js'
-
-const port = 3000
+const requestPort = 3000
 const app = Express()
 
-// middleware
 app.use(cors())
 app.use(Express.json())
 app.use(Express.urlencoded({extended: true}))
+app.use('/todo', routerToDo)
 
-// use routers
-app.use('/todo', todoRouter)
-
-// start
-app.listen(port, () => {
-    console.log(`App listening on http://localhost:${port}`)
+app.listen(requestPort, () => {
+    console.log(`App listening on http://localhost:${requestPort}`)
 })
